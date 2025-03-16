@@ -7,7 +7,7 @@ if (isset($_POST['send'])) {
         $email = htmlspecialchars($_POST["email"]);
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         //Verifier si le mail existe deja        
-        $checkMailExistSql = 'SELECT id FROM formulaire WHERE email = :email';
+        $checkMailExistSql = 'SELECT id FROM users WHERE email = :email';
         $stmtCheckEmail = $pdo->prepare($checkMailExistSql);
         $stmtCheckEmail->execute([':email' => $email]);
         $checkEmailExist = $stmtCheckEmail->fetch();
@@ -15,13 +15,13 @@ if (isset($_POST['send'])) {
         if(!empty($checkEmailExist)) {
             $error = "L'email est déjà utilisée";
         } else {
-            $sql = "INSERT INTO formulaire (username, email, password) VALUES (:username, :email, :password)";
+            $sql = "INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, 'user')";
             $stmt1 = $pdo->prepare($sql);
             $stmt1->execute([':username' => $userName, ':email' => $email, ':password' => $password]);
             $_SESSION['username'] = $userName;
             $_SESSION['userIsLoggedIn'] = true;
             // Recuperer l'id de session de l'utilisateur
-            $stmt2 = $pdo->prepare('SELECT id FROM formulaire WHERE username = ?');
+            $stmt2 = $pdo->prepare('SELECT id FROM users WHERE username = ?');
             $stmt2->execute([$userName]);
             $user = $stmt2->fetch();
             $_SESSION['id'] = $user['id'];
