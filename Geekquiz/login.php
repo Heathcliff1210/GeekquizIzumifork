@@ -5,7 +5,7 @@ if (isset($_POST['send'])) {
     if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         $username = htmlspecialchars($_POST["username"]);
         $pass = htmlspecialchars($_POST["password"]);
-        $checkPass = 'SELECT id, username, password FROM formulaire WHERE username = ?';
+        $checkPass = 'SELECT id, username, password FROM users WHERE username = ?';
         $prepareCheck = $pdo->prepare($checkPass);
         $prepareCheck->execute([$username]); 
         $row = $prepareCheck->fetch(); // Récupérez une seule ligne (si elle existe)
