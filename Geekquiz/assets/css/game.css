@@ -1,0 +1,184 @@
+.icon {
+    width: 7em;
+    height: 7em;
+    border-radius: 2em;
+    border: 2px solid black;
+}
+
+.box-image {
+    padding: 0.5em;
+    background-color: #ff005f;
+    width: fit-content;
+    border-radius: 2em;
+}
+
+.dispose {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em;
+    color: white;
+    width: 40em;
+    border-radius: 2em;
+    transition: all 0.4s ease-in-out;
+    background: linear-gradient(90deg,#ff005f,#00efff);
+    background: linear-gradient(90deg,#e01212,#2033e2) repeat scroll 0 0 transparent !important;
+}
+
+.display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.question-container {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 2em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+}
+.question-container p {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.semi-bar {
+    padding-top: 1em !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3em;
+    background-color: #060624;
+}
+
+.semi-bar button {
+    width: 6em;
+    height: 3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: #ffffff;
+    background-color: #060624;
+}
+.click {
+    border-bottom: 3px solid #d01911 !important;
+    color: #d01911 !important;
+}
+.semi-bar button:hover {
+    border-bottom: 3px solid #6909a4;
+    color: #6909a4;
+    transition: all 0.3s ease;
+}
+.dispose:hover {
+    transform: translateY(-7px);
+    background: linear-gradient(90deg,#e01212,#2033e2);
+    box-shadow: 6px 6px 6px rgb(117, 134, 139);
+    color: black !important;
+    transition: all 0.7s ease-in-out;
+}
+
+.photo-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 600;
+    color: rgb(253, 5, 5);
+    border-radius: 2em;
+    padding: 1em;
+    overflow: hidden;
+    background-color: rgba(35, 27, 27, 0.751);
+    display: none;
+}
+.lien-conteneur-photo {
+    position: relative;
+}
+.dispose:hover .photo-hover {
+    display: flex;
+    transform: translateY(-5px);
+    background-color: #2033e2;
+    transition: all 0.4s ease-in-out;
+}
+
+.photo-hover:hover::after {
+    content: "Play";
+    transition: all 0.4s ease-in-out;
+    animation: animate 1s linear 1;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+    50%,100% {
+        opacity: 1;
+    }
+}
+.photo-hover::after {
+    content: "Click Here";
+}
+@media all and (max-width: 899px) {
+        .semi-bar {
+        margin-top: 5em;
+    }
+    .semi-bar button {
+        width: 5em;
+        height: 2.5em;
+        font-size: 1em;
+    }
+}
+@media all and (max-width: 649px) {
+    .question-container p {
+        display: none;
+    }
+}
+@media all and (max-width: 487px) {
+    .semi-bar {
+        margin-top: 5em;
+    }
+    .semi-bar button {
+        width: 4em;
+        height: 2em;
+        font-size: 0.8em;
+    }
+}
+@media all and (min-width: 444px) {
+    .button {
+        display: none;
+    }
+}
+@media all and (max-width: 443px) {
+    .h5, h5 {
+        font-size: 1rem !important;
+    }
+    .icon {
+        width: 5em;
+        height: 5em;
+    }
+    .dispose:hover .photo-hover{
+        display: none;
+    }
+    .button {
+        display: flex;
+    }
+}
+@media all and (max-width: 377px) {
+    .icon {
+        width: 4em;
+        height: 4em;
+    }
+    .h5, h5 {
+        font-size: 0.7rem !important;
+    }
+}

@@ -1,0 +1,75 @@
+.form-nom-email {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  label {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+  .form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  input[type='submit'] {
+    width: 200px;
+    margin: auto;
+    margin-top: 30px;
+  }
+  input,
+  textarea {
+    padding: 15px;
+    border-radius: 3px;
+    border: none;
+  }
+  .section-contact h2{
+    text-align: center;
+    margin-bottom: 50px;
+    text-decoration: underline;
+    color: #03a9f4;
+    animation: wave 4s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 100% {
+      clip-path: polygon(1% 27%, 9% 31%, 16% 35%, 19% 36%, 30% 41%, 42% 47%, 62% 45%, 74% 38%, 80% 35%, 89% 31%, 96% 28%, 100% 25%, 98% 98%, 0% 99%);
+    }
+    50% {
+      clip-path: polygon(0% 47%, 6% 41%, 14% 36%, 24% 33%, 36% 29%, 44% 28%, 57% 29%, 65% 30%, 74% 35%, 82% 39%, 89% 44%, 96% 49%, 99% 98%, 0% 99%);
+    }
+  }
+  section form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    color: white;
+  }
+  .cta {
+    display: inline-block;
+    background: linear-gradient(#8e86b5, #acaeed);
+    color: white;
+    border-radius: 50px;
+    padding: 20px 30px;
+  }
+  .cta:hover {
+    background: linear-gradient(#696484, #8788ba);
+    text-decoration: none;
+  }
+
+  @media all and (max-width: 1117px) {
+    .form-nom-email {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 496px) {
+  input[type='submit'] {
+    width: fit-content;
+  }
+  #message{
+    height: 9em;
+  }
+}

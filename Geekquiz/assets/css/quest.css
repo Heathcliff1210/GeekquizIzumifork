@@ -1,0 +1,367 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    flex-wrap: wrap;
+    color: white;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #e8e811;
+}
+
+.container form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.rank {
+    color: red;
+}
+
+.container form div {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        padding: 0.5em;
+        color: white;
+        width: 40em;
+        border-radius: 2em;
+        background: linear-gradient(90deg,#e01212,#2033e2) repeat scroll 0 0 transparent;
+}
+.image-quizz {
+    width: 15em;
+    height: 15em;
+    border-radius: 2em;
+    background-size: cover;
+    background-position: center;
+}
+
+.quizz-text {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+.quizz-text span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.answers {
+    font-family: "Playwrite IN", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+input[type="submit"] {
+    margin: 1em;
+    background-color: #121d35;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover {
+    background-color: #2033e2;
+    transition: all 0.5s ease;
+}
+main aside {
+    width: 30%;
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.712);
+}
+main aside h2 {
+    font-size: 1.5em;
+}
+main aside ul {
+    list-style: none;
+    padding: 0;
+}
+main aside ul li {
+    margin-bottom: 0.5em;
+}
+main aside ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}   
+ main aside ul li a:hover {
+    background-color: #ddd;
+}
+section {
+    animation-name: slide;
+    animation-duration: 1000ms;
+}
+
+label {
+    font-size: 1em;
+    width: 35em;
+}
+#answer0 , #answer1 , #answer2, #answer3{
+    display: none;
+}
+.clicked {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px #2033e2 , 0 0 10px #e01212 , 0 0 10px #e01212 ,0 0 10px #2033e2 ;
+    transition: all 0.4s ease-in-out;
+}
+.slide {
+    animation-name: slide;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+}
+.correct {
+    background:linear-gradient(to right, #c5e1a5, #8bc34a) !important;
+}
+.incorrect {
+    background:linear-gradient(to right, #f8bbd0, #e91e63) !important;
+}
+.container form div:hover {
+    opacity: 0.5;
+}
+.reset{
+    text-align: center;
+    margin-top: 0 !important;
+    width: 8em !important;
+    height: fit-content !important;
+}
+
+.none {
+    display: none !important;
+}
+.resetings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+@keyframes slide {
+    from {
+      transform: translateX(50%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+.rules {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rules h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules li {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rules li:before {
+    content: '•';
+    font-size: 24px;
+    color: #ccc;
+    margin-right: 10px;
+}
+
+.rules li:last-child {
+    margin-bottom: 0;
+}
+.rules-button {
+    display: none;
+    background-color: #2033e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.rules-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1106px) {
+    .rules {
+        display: none;
+    }
+
+    .rules-button {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    .container form div {
+        width: 30em;
+    }
+    .quizz-text {
+        font-size: 1.4em;
+    }
+}
+@media all and (max-width: 899px) {
+    main {
+        margin-top: 5em;
+    }
+}
+
+@media all and (max-width: 734px) {
+    .container form div {
+        width: 20em;
+    }
+    .quizz-text {
+        font-size: 1.2em;
+    }
+    .rank ~ p {
+        font-size: 0.7em;
+    }
+    .answer h2 {
+        font-size: 1.1em;
+    }
+    .answer p {
+        font-size: 0.8em;
+    }
+}
+
+@media all and (max-width: 649px) {
+    .container form div {
+        width: 15em;
+    }
+    .quizz-text {
+        font-size: 1em;
+    }
+    .contaainer h1 {
+        font-size: 1.5em;
+    }
+    .image-quizz {
+        width: 10em;
+        height: 10em;
+    }
+    label {
+        font-size: 13px;
+    }
+}
+
+@media all and (max-width: 562px) {
+    main aside h2 {
+        font-size: 1.2em;
+    }
+    main aside ul {
+        font-size: 0.9em;
+    }
+    main aside ul li a {
+        font-size: 0.8em;
+    }
+    .container form div {
+        width: 10em;
+    }
+    .rules-button {
+        display: none;
+    }
+    label {
+        font-size: 9px;
+    }
+}
+@media all and (max-width: 515px) {
+    #drop {
+        font-size: 0.7em;
+    }
+}
+@media all and (max-width: 425px) {
+    .container h1 {
+        font-size: 1.2em;
+    }
+    #drop {
+        font-size: 0.5em;
+    }
+    .rank ,.answer h2{
+        font-size: 0.9em;
+    }
+    .answer p {
+        font-size: 0.5em;
+    }
+    .image-quizz {
+        width: 7em;
+        height: 7em;
+    }
+    
+}
+@media all and (max-width: 388px) {
+    main aside ul {
+        font-size: 0.6em;
+    }
+}
+@media all and (max-width: 359px) {
+    #drop {
+        font-size: 0.3em;
+    }
+    .answer h2{
+        font-size: 0.7em;
+    }
+    main aside {
+        display: none;
+    }
+}

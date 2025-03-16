@@ -1,0 +1,98 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+    padding: 3em;
+    align-items: center;
+    color: aliceblue;
+}
+main div {
+    width: 100%;
+}
+.rankings-title {
+    text-align: center;
+}
+.rankings-table {
+    border-collapse: collapse;
+    margin: 0.5em 0;
+    font-size: 0.9em;
+    width: 100%;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(174, 171, 171, 0.541);
+}
+.rankings-table thead tr {
+    background-color: #141e88;
+    color: #ffffff;
+    text-align: left;
+}
+.rankings-table th,
+.rankings-table td {
+    padding: 0.5em 0.9em;
+}
+.rankings-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.rankings-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    color: #333333;
+}
+.rankings-table tbody tr:last-of-type {
+    border-bottom: 2px solid #141e88;
+}
+.rankings-table tbody tr.current-user {
+    font-weight: bold;
+    color: #c9822b;
+}
+.personal-table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.9em;
+    width: 100%;
+    min-width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(174, 171, 171, 0.541);
+}
+.personal-table thead tr {
+    background-color: #ff0045;
+    color: #ffffff;
+    text-align: left;
+}
+.personal-table th,
+.personal-table td {
+    padding: 0.5em 0.9em;
+}
+.personal-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.personal-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    color: #333333;
+}
+.personal-table tbody tr:last-of-type {
+    border-bottom: 2px solid #ff0045;
+}
+@media all and (max-width: 900px) {
+    main {
+        margin-top: 3em;
+    }
+    .rankings-table {
+        font-size: 0.8em;
+    }
+    .personal-table {
+        font-size: 0.8em;
+    }
+}
+@media all and (max-width: 489px) {
+    .rankings-table {
+        font-size: 0.5em;
+        min-width: 100px;
+    }
+    .personal-table {
+        font-size: 0.5em;
+        min-width: 100px;
+    }
+}

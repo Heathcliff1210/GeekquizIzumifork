@@ -1,0 +1,116 @@
+.semi-bar {
+    padding-top: 1em !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3em;
+    background-color: #060624;
+}
+
+.semi-bar button {
+    width: 6em;
+    height: 3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: #ffffff;
+    background-color: #060624;
+}
+.click {
+    border-bottom: 3px solid #17d011 !important;
+    color: #17d011 !important;
+}
+.semi-bar button:hover {
+    border-bottom: 3px solid #21f9bc;
+    color: #21f9bc;
+    transition: all 0.3s ease;
+}
+
+.myquiz {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding-top: 2em;
+}
+.quiz-container {
+    padding: 1em;
+    background: linear-gradient(45deg ,#94c336 , #ead05a) ;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    width: 40em;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+}
+.quiz-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px yellow , 0 0 15px yellow;
+    transition: all 0.4s ease-in-out;
+}
+img {
+    width: 10em;
+    height: 10em;
+    border-radius: 2em;
+    border: 2px solid black;
+}
+img:hover {
+    opacity: 0.5;
+}
+.image-create {
+    padding: 0.5em;
+    border: none;
+    background-color: #8bb636;
+    border-radius: 2em;
+    width: fit-content;
+}
+.hide {
+    visibility: hidden;
+}
+@media all and (max-width: 899px) {
+    .myquiz {
+        margin-top: 5em;
+    }
+}
+@media all and (max-width: 655px) {
+    img {
+        width: 8em;
+        height: 8em;
+    }
+    .quiz-container {
+        width: 30em;
+    }
+}
+@media all and (max-width: 500px) {
+    img {
+        width: 17em;
+        height: 10em;
+    }
+    .quiz-container {
+        width: 20em;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media all and (max-width: 400px) {
+    img {
+        width: 12em;
+        height: 8em;
+    }
+    .quiz-container {
+        width: 15em;
+    }
+    .quiz-container {
+        gap: 0;
+    }
+    .quiz-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.3em;
+    }
+}

@@ -1,0 +1,341 @@
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1em;
+}
+main aside {
+    width: 30%;
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.712);
+}
+main aside h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+main aside ul {
+    list-style: none;
+    padding: 0;
+    font-family: "Playwrite IN", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+main aside ul li {
+    margin-bottom: 0.5em;
+}
+main aside ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}   
+ main aside ul li a:hover {
+    background-color: #ddd;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    width: 70%;
+    height: fit-content;
+}
+section h1 {
+    font-size: 2.5rem;
+    text-align:center;
+    color: #007efa;
+}
+img {
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    object-fit: cover;
+}
+section form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: white;
+}
+section form h3 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.slide {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding: 0.5em;
+    color: white;
+    width: 40em;
+    border-radius: 2em;
+    background: linear-gradient(90deg ,#ff8700,#44005e) repeat scroll 0 0 transparent;
+    transition: all 0.2s ease-in-out;
+}
+.slide:hover {
+    opacity: 0.6;
+}
+.slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5em;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+.question-container h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+section label {
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%;
+}
+label input[type="radio"] {
+    display: none;
+}
+#quizForm button[type="submit"],#quizForm button[type="button"]{
+    margin: 1em;
+    background-color: #121d35;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: fit-content;
+}
+button[type="submit"]:hover {
+    background-color: #007efa;
+}
+button[type="button"]:hover {
+    background-color: #007efa;
+}
+.clicked {
+    transform: translateY(-5px);
+    box-shadow:  0 0 10px #44005e , 0 0 10px #ff8700 ,0 0 10px #44005e ,0 0 10px #ff8700 ;
+    transition: all 0.2s ease-in-out;
+}
+.correct {
+    background:linear-gradient(to right, #c5e1a5, #8bc34a) !important;
+}
+.incorrect {
+    background:linear-gradient(to right, #f48fb1, #f06292) !important;
+}
+.question-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.question-container.slideffect {
+    opacity: 1;
+}
+.rules {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rules h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules li {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rules li:before {
+    content: '•';
+    font-size: 24px;
+    color: #ccc;
+    margin-right: 10px;
+}
+
+.rules li:last-child {
+    margin-bottom: 0;
+}
+.rules-button {
+    display: none;
+    background-color: #2033e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.rules-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#commente {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+@media all and (max-width: 979px) {
+    .slide {
+        width: 35em;
+    }
+}
+@media screen and (max-width: 925px) {
+    .container form div {
+        width: 30em;
+    }
+    .quizz-text {
+        font-size: 1.4em;
+    }
+    .rules {
+        display: none;
+    }
+
+    .rules-button {
+        display: block;
+    }
+}
+@media all and (max-width: 899px) {
+    main {
+        margin-top: 5em;
+    }
+    .slide {
+        width: 30em;
+    }
+}
+@media all and (max-width: 740px) {
+    .slide {
+        width: 25em;
+    }
+    img {
+        width: 14em;
+        height: 14em;
+    }
+    #commente {
+        font-size: 1em;
+    }
+}
+@media all and (max-width: 595px) {
+    
+section h1 {
+    font-size: 2rem;
+    }
+    .slide {
+        width: 20em;
+    }
+    #commente {
+        font-size: 1em;
+    }
+}
+@media all and (max-width: 542px) {
+    .question-container h3 {
+        font-size: 1.2em;
+    }
+    main aside h2 {
+        font-size: 1em;
+    }
+    aside p {
+        font-size: 0.7rem;
+    }
+    #commente {
+        font-size: 0.5em;
+    }
+}
+@media all and (max-width: 486px) {
+    main aside ul {
+        font-size: 0.7em;
+    }
+    .slide {
+        width: 15em;
+    }
+    img {
+        width: 10em;
+        height: 10em;
+    }
+    #commente {
+        font-size: 0.5em;
+    }
+}
+@media all and (max-width: 419px) {
+    .slide {
+        width: 10em;
+    }
+    .rules-button {
+        font-size: 0.7em;
+    }
+    main aside h2 {
+        font-size: 0.7em;
+    }
+    main aside ul {
+        font-size: 0.5em;
+    }
+    section h1 {
+        font-size: 1.5rem;
+    }
+    .question-container h3 {
+        font-size: 1em;
+    }
+    #commente {
+        font-size: 0.5em;
+    }
+}
+@media all and (max-width: 359px) {
+    .rules-button {
+        font-size: 0.5em;
+    }
+    main aside {
+        display: none;
+    }
+    main {
+        justify-content: center;
+    }
+}

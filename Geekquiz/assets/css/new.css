@@ -1,0 +1,45 @@
+main {
+    align-items: center;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formula {
+    background-color: #f9f9f9;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+    padding: 1em;
+}
+.formula textarea {
+    height: 7em;
+    padding: 1em;
+    resize: none;
+    width: 100%;
+}
+.formula input {
+    padding: 1em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.questions {
+    margin-top: 1em;
+}
+@media all and (max-width: 899px) {
+    main {
+        margin-top: 5em;
+    }
+}

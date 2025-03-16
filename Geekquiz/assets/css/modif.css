@@ -1,0 +1,57 @@
+main {
+    padding: 3em;
+    color: aliceblue;
+}
+
+.scroll {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+.scroll h2 {
+    text-align: center;
+    color: black;
+}
+.scroll textarea {
+    width: 100%;
+    height: 4em;
+    margin: 1em 0;
+    border-radius: 5px;
+    outline: none;
+    resize: none ;   
+    font-size: 1em;
+    max-height: 8em;
+    padding: 1em;
+    border-color: #bfbfbf;
+    transition: border-color 0.5s ease;
+}
+.scroll textarea:is(:focus, :hover) {
+    border-color: #0f158c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.5s ease;
+    border-width: 2px;
+}
+.scroll textarea::-webkit-scrollbar {
+    width: 0px;
+}
+.nothing {
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    color: gold;
+    padding: 2em;
+}
+@media all and (max-width: 899px) {
+    main {
+        margin-top: 5em;
+    }
+}
+@media all and (max-width: 430px) {
+    #add_question {
+        margin-top: 1em;
+    }
+}
