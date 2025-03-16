@@ -16,8 +16,8 @@
     <title>GeekQuiz</title>
 </head>
 <body>
-    <?php require 'header.php';?>
-    <?php require 'respoheader.php';?>
+    <?php require 'header_fixed.php';?>
+    <?php require 'respoheader_fixed.php';?>
     <main>
         <div class="container">
             <div class="row justify-content-center my">
