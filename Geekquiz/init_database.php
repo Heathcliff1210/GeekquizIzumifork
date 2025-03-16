@@ -4,8 +4,8 @@
  * Ce script vérifie si l'environnement est PostgreSQL ou MySQL et initialise la base de données en conséquence
  */
 
-// Vérifier si on est en environnement PostgreSQL (Railway)
-if (getenv('PGHOST')) {
+// Vérifier si on est en environnement PostgreSQL (Railway, Render, Replit)
+if (getenv('PGHOST') || getenv('DATABASE_URL')) {
     require_once 'database_postgres.php';
     echo "Initialisation de la base de données PostgreSQL...<br>";
     

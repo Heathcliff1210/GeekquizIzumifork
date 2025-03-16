@@ -4,8 +4,8 @@
  * Ce fichier détecte automatiquement s'il faut utiliser PostgreSQL ou MySQL
  */
 
-// Vérifier si nous sommes en environnement PostgreSQL (Railway)
-if (getenv('PGHOST')) {
+// Vérifier si nous sommes en environnement PostgreSQL (Railway, Render, Replit)
+if (getenv('PGHOST') || getenv('DATABASE_URL')) {
     // Utiliser la connexion PostgreSQL
     require_once 'database_postgres.php';
 } else {
@@ -32,5 +32,5 @@ if (getenv('PGHOST')) {
 
 // Fonction pour vérifier si on doit utiliser pgInsertScore
 function isPostgres() {
-    return getenv('PGHOST') !== false;
+    return getenv('PGHOST') !== false || getenv('DATABASE_URL') !== false;
 }

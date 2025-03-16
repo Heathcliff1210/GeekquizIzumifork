@@ -6,12 +6,30 @@
 // Inclure l'adaptateur PostgreSQL
 require_once 'pg_adapter.php';
 
-// Récupérer les variables d'environnement
-$host = getenv('PGHOST');
-$dbname = getenv('PGDATABASE');
-$user = getenv('PGUSER');
-$password = getenv('PGPASSWORD');
-$port = getenv('PGPORT');
+// Vérifier si DATABASE_URL est disponible (utilisé par Render et Replit)
+if (getenv('DATABASE_URL')) {
+    $database_url = getenv('DATABASE_URL');
+    
+    // Analyser l'URL de la base de données
+    $url = parse_url($database_url);
+    
+    $host = $url['host'] ?? '';
+    $port = $url['port'] ?? 5432;
+    $user = $url['user'] ?? '';
+    $password = $url['pass'] ?? '';
+    $dbname = ltrim($url['path'] ?? '', '/');
+    
+    echo "Connexion avec DATABASE_URL<br>";
+} else {
+    // Méthode traditionnelle Railway avec variables individuelles
+    $host = getenv('PGHOST');
+    $dbname = getenv('PGDATABASE');
+    $user = getenv('PGUSER');
+    $password = getenv('PGPASSWORD');
+    $port = getenv('PGPORT');
+    
+    echo "Connexion avec variables PGHOST, etc.<br>";
+}
 
 // Connexion à la base de données PostgreSQL
 try {
