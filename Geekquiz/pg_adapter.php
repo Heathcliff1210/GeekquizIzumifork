@@ -97,60 +97,52 @@ function createPostgresTables($pdo) {
             );
         ");
         
-        // Créer la table quizzes
+        // Créer la table quizzes compatible avec l'ancienne structure MySQL
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS quizzes (
                 id SERIAL PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
-                description TEXT,
-                category VARCHAR(50) NOT NULL,
-                user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                name VARCHAR(255) NOT NULL,
+                user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
             );
         ");
         
-        // Créer la table questions
+        // Créer la table questions compatible avec l'ancienne structure MySQL
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS questions (
                 id SERIAL PRIMARY KEY,
                 quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
-                question_text TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                question_text TEXT NOT NULL
             );
         ");
         
-        // Créer la table réponses
+        // Créer la table réponses compatible avec l'ancienne structure MySQL
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS answers (
                 id SERIAL PRIMARY KEY,
                 question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
                 answer_text TEXT NOT NULL,
-                is_correct BOOLEAN DEFAULT FALSE,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                is_correct BOOLEAN DEFAULT FALSE
             );
         ");
         
-        // Créer la table scores
+        // Créer la table scores compatible avec l'ancienne structure MySQL
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS scores (
                 id SERIAL PRIMARY KEY,
                 user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
                 quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
-                score DECIMAL(5,2) NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                score INTEGER NOT NULL,
                 UNIQUE(user_id, quiz_id)
             );
         ");
         
-        // Créer la table formulaire
+        // Créer la table formulaire avec une structure compatible avec l'ancienne base de données MySQL
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS formulaire (
                 id SERIAL PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
-                email VARCHAR(100) NOT NULL,
-                subject VARCHAR(100) NOT NULL,
-                message TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                username VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL
             );
         ");
         

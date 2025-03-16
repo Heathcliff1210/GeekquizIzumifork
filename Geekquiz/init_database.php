@@ -22,58 +22,26 @@ if (getenv('PGHOST') || getenv('DATABASE_URL')) {
         return;
     }
     
-    // Insérer des données de démonstration
-    try {
-        // Créer un utilisateur de démonstration
-        $password = password_hash('password123', PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
-        $stmt->execute(['admin', 'admin@geekquiz.com', $password, 'admin']);
-        $adminId = $pdo->lastInsertId();
-        
-        // Créer un quiz de démonstration
-        $stmt = $pdo->prepare("INSERT INTO quizzes (name, description, category, user_id) VALUES (?, ?, ?, ?)");
-        $stmt->execute(['Quiz de démonstration', 'Un quiz pour tester l\'application', 'démo', $adminId]);
-        $quizId = $pdo->lastInsertId();
-        
-        // Créer des questions et réponses
-        $questions = [
-            'Quelle est la capitale de la France?' => [
-                ['Paris', true],
-                ['Lyon', false],
-                ['Marseille', false],
-                ['Toulouse', false]
-            ],
-            'Qui a peint la Joconde?' => [
-                ['Picasso', false],
-                ['Van Gogh', false],
-                ['Michel-Ange', false],
-                ['Léonard de Vinci', true]
-            ],
-            'Combien font 2+2?' => [
-                ['3', false],
-                ['4', true],
-                ['5', false],
-                ['22', false]
-            ]
-        ];
-        
-        foreach ($questions as $questionText => $answers) {
-            $stmt = $pdo->prepare("INSERT INTO questions (quiz_id, question_text) VALUES (?, ?)");
-            $stmt->execute([$quizId, $questionText]);
-            $questionId = $pdo->lastInsertId();
+    // Importer les données MySQL vers PostgreSQL
+    require_once 'import_mysql_data.php';
+    
+    // Si l'importation échoue, insérer des données minimales de secours
+    if ($pdo->query("SELECT COUNT(*) FROM users")->fetchColumn() == 0) {
+        try {
+            // Créer un utilisateur de secours
+            $password = password_hash('admin123', PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+            $stmt->execute(['admin', 'admin@geekquiz.com', $password, 'admin']);
             
-            foreach ($answers as $answer) {
-                // Conversion explicite vers booléen pour PostgreSQL
-                $isCorrect = $answer[1] ? 'true' : 'false';
-                $stmt = $pdo->prepare("INSERT INTO answers (question_id, answer_text, is_correct) VALUES (?, ?, ?)");
-                $stmt->execute([$questionId, $answer[0], $isCorrect]);
-            }
+            // Copier dans formulaire pour assurer la compatibilité
+            $adminId = $pdo->lastInsertId();
+            $stmt = $pdo->prepare("INSERT INTO formulaire (username, email, password) VALUES (?, ?, ?)");
+            $stmt->execute(['admin', 'admin@geekquiz.com', $password]);
+            
+            echo "Données minimales créées avec succès.";
+        } catch (PDOException $e) {
+            die("Erreur lors de l'insertion des données minimales : " . $e->getMessage());
         }
-        
-        // Données de démonstration insérées avec succès
-        
-    } catch (PDOException $e) {
-        die("Erreur lors de l'insertion des données de démonstration : " . $e->getMessage());
     }
 } else {
     // Environnement MySQL (développement local)
