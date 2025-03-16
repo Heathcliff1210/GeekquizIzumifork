@@ -11,4 +11,4 @@ $PHP -f Geekquiz/init_database.php
 # Démarrage du serveur PHP
 echo "Démarrage du serveur PHP sur le port 5000..."
 cd Geekquiz
-$PHP -S 0.0.0.0:5000
+$PHP -d display_errors=1 -d error_reporting=E_ALL -S 0.0.0.0:5000
