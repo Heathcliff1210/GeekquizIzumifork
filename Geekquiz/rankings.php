@@ -18,20 +18,20 @@ if (isset($_SESSION['id'])) {
 }
 // Recuperer le nom des createur de chaque quiz
 $stmt = $pdo->prepare('
-    SELECT q.id AS quiz_id, q.name AS quiz_name, f.username
+    SELECT q.id AS quiz_id, q.name AS quiz_name, u.username
     FROM quizzes q
-    JOIN formulaire f ON q.user_id = f.id
+    JOIN users u ON q.user_id = u.id
 ');
 $stmt->execute();
 $creators = $stmt->fetchAll();
 
 // Récupérer le classement général pour tous les quiz
 $stmt = $pdo->prepare('
-    SELECT q.id AS quiz_id, q.name AS quiz_name, f.username, s.score,
+    SELECT q.id AS quiz_id, q.name AS quiz_name, u.username, s.score,
            ROW_NUMBER() OVER (PARTITION BY q.id ORDER BY s.score DESC) as rank
     FROM scores s
     JOIN quizzes q ON s.quiz_id = q.id
-    JOIN formulaire f ON s.user_id = f.id
+    JOIN users u ON s.user_id = u.id
     ORDER BY q.name, s.score DESC
 ');
 $stmt->execute();
