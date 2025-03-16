@@ -67,8 +67,10 @@ if (getenv('PGHOST')) {
             $questionId = $pdo->lastInsertId();
             
             foreach ($answers as $answer) {
+                // Conversion explicite vers booléen pour PostgreSQL
+                $isCorrect = $answer[1] ? 'true' : 'false';
                 $stmt = $pdo->prepare("INSERT INTO answers (question_id, answer_text, is_correct) VALUES (?, ?, ?)");
-                $stmt->execute([$questionId, $answer[0], $answer[1]]);
+                $stmt->execute([$questionId, $answer[0], $isCorrect]);
             }
         }
         
