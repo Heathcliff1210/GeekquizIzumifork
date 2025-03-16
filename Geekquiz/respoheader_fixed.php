@@ -1,6 +1,8 @@
 <?php
-// Démarrer la session avant tout affichage
-session_status() === PHP_SESSION_ACTIVE || session_start();
+// Vérifier si la session existe déjà avant de la démarrer
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <nav id="responsive" class="navbar navbar-dark fixed-top" style="background-color: #2c2cb2;">
   <div class="container-fluid">

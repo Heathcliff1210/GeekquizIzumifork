@@ -1,6 +1,8 @@
 <?php
-// Démarrer la session avant tout affichage
-session_status() === PHP_SESSION_ACTIVE || session_start();
+// Vérifier si la session existe déjà avant de la démarrer
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <header >
     <div class="navigation">
