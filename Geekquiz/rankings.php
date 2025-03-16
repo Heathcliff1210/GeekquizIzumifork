@@ -3,7 +3,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 };
 // Connexion à la base de données
-require 'database.php';
+if (getenv('PGHOST') || getenv('DATABASE_URL')) {
+    // Environnement PostgreSQL (production)
+    require 'database_postgres.php';
+} else {
+    // Environnement MySQL (développement local)
+    require 'database.php';
+}
 if (isset($_SESSION['id'])) {
     // Récupérer le classement personnel de l'utilisateur connecté
     $stmt = $pdo->prepare('

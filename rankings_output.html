@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/rank.css">
+    <link rel="stylesheet" href="assets/css/respoheader.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Monsieur+La+Doulaise&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IN:wght@100..400&family=Roboto+Slab:wght@100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Classements</title>
+</head>
+<body>
+<header >
+    <div class="navigation">
+        <a style="text-decoration: none" href="index.php">
+            <h1 class="nav-title">GeekQuiz</h1>
+        </a>
+        <ul>
+            <li class="list act">
+                <a class="navLinks" href="index.php">
+                    <span class="icons">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Accueil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a class="navLinks" href="game.php">
+                    <span class="icons">
+                        <ion-icon name="game-controller-outline"></ion-icon>
+                    </span>
+                    <span class="title">Quizz</span>
+                </a>
+            </li>
+            <li class="list">
+                <a class="navLinks" href="rankings.php">
+                    <span class="icons">
+                        <ion-icon name="podium-outline"></ion-icon>
+                    </span>
+                    <span class="title">Classement</span>
+                </a>
+            </li>
+            <li class="list">
+                <a class="navLinks" href="new.php">
+                    <span class="icons">
+                        <ion-icon name="folder-open-outline"></ion-icon>
+                    </span>
+                    <span class="title">Nouveau</span>
+                </a>
+            </li>
+                        <li class="list">
+                <a class="navLinks" href="aide.php">
+                    <span class="icons">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                    </span>
+                    <span class="title">Aide</span>
+                </a>
+            </li>
+        </ul>
+        <div class="auth-buttons">
+        <a href="login.php"><button class="sign-in">Sign In</button></a><a href="sign.php"><button class="sign-up">Sign Up</button></a>        </div>
+    </div>
+</header><nav id="responsive" class="navbar navbar-dark fixed-top" style="background-color: #2c2cb2;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php">
+      <h1 class="nav-title">GeekQuiz</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #1a1a2e;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link respoNavLinks" aria-current="page" href="index.php">
+              <span class="icons"><ion-icon name="home-outline"></ion-icon></span>
+              <span class="title">Accueil</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link respoNavLinks" href="game.php">
+              <span class="icons"><ion-icon name="game-controller-outline"></ion-icon></span>
+              <span class="title">Quizz</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link respoNavLinks" href="rankings.php">
+              <span class="icons"><ion-icon name="podium-outline"></ion-icon></span>
+              <span class="title">Classement</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link respoNavLinks" href="new.php">
+              <span class="icons"><ion-icon name="folder-open-outline"></ion-icon></span>
+              <span class="title">Nouveau</span>
+            </a>
+          </li>
+                    <li class="nav-item">
+            <a class="nav-link respoNavLinks" href="aide.php">
+              <span class="icons"><ion-icon name="help-circle-outline"></ion-icon></span>
+              <span class="title">Aide</span>
+            </a>
+          </li>
+        </ul>
+        <div class="mt-3">
+          <a href="login.php" class="btn btn-outline-light me-2">Sign In</a><a href="sign.php" class="btn btn-light">Sign Up</a>        </div>
+      </div>
+    </div>
+  </div>
+</nav>    <main>
+        <div>
+            <h2 class="rankings-title">Votre classement personnel</h2>
+            <table class="personal-table">
+                <thead>
+                    <tr>
+                        <th>Quiz</th>
+                        <th>Score</th>
+                        <th>Createur du Quiz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- On verifie si l'utilisateur a deja jouer a un quizz crée -->
+                                                                <tr>
+                            <td colspan="2">Aucun score enregistré</td>
+                        </tr>
+                                    </tbody>
+            </table>
+        </div>
+        <div>
+        <h2 class="rankings-title">Classement général par quiz</h2>
+                    <h2>Aucun quiz disponible</h2>
+                </div>
+    </main>
+<footer>
+    <div class="container-footer">
+        <div class="dist">
+            <h4>Nous contacter</h4><br>
+                <ul style="font-size: 1.2em;" class="list-unstyled">
+                    <li> contact@geekquiz.com</li>
+                    <li> +33 1 23 45 67 89</li>
+                    <li> 123 Rue du Quiz, 75000 Paris</li>
+                </ul>
+        </div>
+        <div class="dist">
+            <h4>À propos de GeekQuiz</h4>
+            <p style="font-size: 1.2em;">GeekQuiz est votre plateforme de quiz interactifs. Testez vos connaissances, défiez vos amis et apprenez en vous amusant !</p><br>
+        </div>
+    </div>
+    <div class="copyright">
+        <div>
+            <p>&copy; <span>GeekQuiz </span>2021. Tous droits réservés.</p>
+        </div>
+        <div class="div-link">
+            <a class="foot-link" target="_blanc" href="https://www.facebook.com/profile.php?id=61560523441372"><img src="assets/images/face.png" alt="Facebook"></a>
+            <a class="foot-link" target="_blanc" href="https://github.com/arcanoecole-It1/workspace"><img src="assets/images/git2.png" alt="Github"></a>
+        </div>
+    </div>
+</footer><script src="assets/js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+                        
