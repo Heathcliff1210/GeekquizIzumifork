@@ -18,6 +18,17 @@ if (isset($_POST['send'])) {
             $sql = "INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, 'user')";
             $stmt1 = $pdo->prepare($sql);
             $stmt1->execute([':username' => $userName, ':email' => $email, ':password' => $password]);
+            
+            // Synchroniser avec la table formulaire pour compatibilité
+            if (isPostgres()) {
+                $formSql = "INSERT INTO formulaire (id, username, email, password) VALUES (:id, :username, :email, :password)";
+                $stmt2 = $pdo->prepare('SELECT id FROM users WHERE username = ?');
+                $stmt2->execute([$userName]);
+                $user = $stmt2->fetch();
+                $formStmt = $pdo->prepare($formSql);
+                $formStmt->execute([':id' => $user['id'], ':username' => $userName, ':email' => $email, ':password' => $password]);
+            }
+            
             $_SESSION['username'] = $userName;
             $_SESSION['userIsLoggedIn'] = true;
             // Recuperer l'id de session de l'utilisateur
