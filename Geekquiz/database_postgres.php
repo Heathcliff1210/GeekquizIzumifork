@@ -18,8 +18,6 @@ if (getenv('DATABASE_URL')) {
     $user = $url['user'] ?? '';
     $password = $url['pass'] ?? '';
     $dbname = ltrim($url['path'] ?? '', '/');
-    
-    echo "Connexion avec DATABASE_URL<br>";
 } else {
     // Méthode traditionnelle Railway avec variables individuelles
     $host = getenv('PGHOST');
@@ -27,8 +25,6 @@ if (getenv('DATABASE_URL')) {
     $user = getenv('PGUSER');
     $password = getenv('PGPASSWORD');
     $port = getenv('PGPORT');
-    
-    echo "Connexion avec variables PGHOST, etc.<br>";
 }
 
 // Connexion à la base de données PostgreSQL

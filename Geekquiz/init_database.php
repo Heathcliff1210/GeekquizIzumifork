@@ -7,14 +7,10 @@
 // Vérifier si on est en environnement PostgreSQL (Railway, Render, Replit)
 if (getenv('PGHOST') || getenv('DATABASE_URL')) {
     require_once 'database_postgres.php';
-    echo "Initialisation de la base de données PostgreSQL...<br>";
     
     // Créer les tables si elles n'existent pas
-    if (createPostgresTables($pdo)) {
-        echo "Tables PostgreSQL créées avec succès.<br>";
-    } else {
-        echo "Erreur lors de la création des tables PostgreSQL.<br>";
-        exit();
+    if (!createPostgresTables($pdo)) {
+        die("Erreur lors de la création des tables PostgreSQL.");
     }
     
     // Vérifier si des données existent déjà
@@ -22,8 +18,8 @@ if (getenv('PGHOST') || getenv('DATABASE_URL')) {
     $userCount = $stmt->fetchColumn();
     
     if ($userCount > 0) {
-        echo "Des données existent déjà dans la base de données. Initialisation terminée.<br>";
-        exit();
+        // Les données existent, pas besoin d'initialiser
+        return;
     }
     
     // Insérer des données de démonstration
@@ -74,16 +70,12 @@ if (getenv('PGHOST') || getenv('DATABASE_URL')) {
             }
         }
         
-        echo "Données de démonstration insérées avec succès.<br>";
+        // Données de démonstration insérées avec succès
         
     } catch (PDOException $e) {
-        echo "Erreur lors de l'insertion des données de démonstration : " . $e->getMessage() . "<br>";
+        die("Erreur lors de l'insertion des données de démonstration : " . $e->getMessage());
     }
 } else {
     // Environnement MySQL (développement local)
     require_once 'database.php';
-    echo "Environnement MySQL détecté. Pas d'initialisation nécessaire.<br>";
 }
-
-echo "Initialisation de la base de données terminée.<br>";
-echo "<a href='index.php'>Retour à l'accueil</a>";
