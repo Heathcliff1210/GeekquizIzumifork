@@ -1,7 +1,8 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
+// Vérifier si la session existe déjà avant de la démarrer pour éviter les warnings
+if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     session_start();
-};
+}
 ?>
 <header >
     <div class="navigation">
